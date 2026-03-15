@@ -49,5 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initial UI State
     updateStationList();
+    if(window.updateTrainList) updateTrainList();
     renderDiagram();
 });

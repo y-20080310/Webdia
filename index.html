@@ -23,6 +23,11 @@
                 <ul id="station-list-ul"></ul>
                 <button id="btn-add-station">+ 駅追加</button>
             </section>
+            <section class="train-list" style="margin-top: 10px;">
+                <h2>列車一覧</h2>
+                <ul id="train-list-ul"></ul>
+                <button id="btn-add-train">+ 列車追加</button>
+            </section>
         </aside>
         
         <main class="diagram-area" id="diagram-container">
@@ -31,10 +36,64 @@
     </div>
     
     <footer class="bottom-panel">
-        <section class="train-timetable">
-            <h2>列車時刻表</h2>
-            <div id="timetable-display">駅や列車を選択するとここに状態が表示されます。</div>
-        </section>
+        <div style="display: flex; height: 100%; gap: 10px;">
+            <section class="panel-section" id="editor-station" style="display:none; flex: 1; overflow-y: auto;">
+                <h2>駅編集</h2>
+                <form id="form-station">
+                    <input type="hidden" id="edit-station-id">
+                    <div><label>駅名: <input type="text" id="edit-station-name"></label></div>
+                    <div><label>駅規模: 
+                        <select id="edit-station-scale">
+                            <option value="general">一般駅</option>
+                            <option value="major">主要駅</option>
+                        </select>
+                    </label></div>
+                    <div><label><input type="checkbox" id="edit-station-downMain"> 下り本線設定</label></div>
+                    <div><label><input type="checkbox" id="edit-station-upMain"> 上り本線設定</label></div>
+                    <div id="edit-station-tracks-container">
+                        <h3>番線</h3>
+                        <ul id="edit-station-tracks-list"></ul>
+                        <button type="button" id="btn-add-track">番線追加</button>
+                    </div>
+                    <button type="button" id="btn-save-station">保存</button>
+                </form>
+            </section>
+            
+            <section class="panel-section" id="editor-train" style="display:none; flex: 1; overflow-y: auto;">
+                <h2>列車編集</h2>
+                <form id="form-train">
+                    <input type="hidden" id="edit-train-id">
+                    <div><label>列車番号: <input type="text" id="edit-train-number"></label></div>
+                    <div><label>列車名: <input type="text" id="edit-train-name"></label></div>
+                    <div><label>行先: <input type="text" id="edit-train-destination"></label></div>
+                    <div><label>方向: 
+                        <select id="edit-train-direction">
+                            <option value="down">下り</option>
+                            <option value="up">上り</option>
+                        </select>
+                    </label></div>
+                    <div><label>種別: <select id="edit-train-type"></select></label></div>
+                    <button type="button" id="btn-save-train">保存</button>
+                </form>
+            </section>
+            
+            <section class="panel-section" id="editor-timetable" style="display:none; flex: 2; overflow-y: auto;">
+                <h2 id="timetable-title">時刻表編集</h2>
+                <table id="timetable-table" border="1" style="width:100%; border-collapse: collapse; text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>駅名</th>
+                            <th>着(分)</th>
+                            <th>発(分)</th>
+                            <th>番線</th>
+                            <th>通過</th>
+                        </tr>
+                    </thead>
+                    <tbody id="timetable-tbody"></tbody>
+                </table>
+                <button type="button" id="btn-save-timetable">時刻表保存</button>
+            </section>
+        </div>
     </footer>
 
     <!-- Scripts -->

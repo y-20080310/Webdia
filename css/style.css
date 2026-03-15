@@ -56,11 +56,18 @@ body, html {
 }
 
 .bottom-panel {
-    height: 200px;
+    height: 350px;
     background: #eef;
     border-top: 1px solid #ccc;
     padding: 10px;
     overflow-y: auto;
+}
+
+.panel-section {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 h2 {
@@ -68,12 +75,12 @@ h2 {
     margin-top: 0;
 }
 
-.station-list ul {
+.station-list ul, .train-list ul {
     list-style: none;
     padding: 0;
 }
 
-.station-list li {
+.station-list li, .train-list li {
     padding: 8px;
     background: white;
     margin-bottom: 5px;
@@ -82,22 +89,21 @@ h2 {
     cursor: pointer;
 }
 
-.station-list li:hover {
+.station-list li:hover, .train-list li:hover {
     background: #eee;
 }
 
-#btn-add-station {
-    width: 100%;
+button {
     padding: 8px;
-    margin-top: 10px;
     background: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 3px;
+    margin-top: 5px;
 }
 
-#btn-add-station:hover {
+button:hover {
     background: #45a049;
 }
 
@@ -119,5 +125,11 @@ h2 {
         height: 200px;
         border-right: none;
         border-bottom: 1px solid #ccc;
+    }
+    .bottom-panel {
+        height: auto;
+    }
+    .bottom-panel > div {
+        flex-direction: column;
     }
 }
