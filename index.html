@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDia</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>WebDia</h1>
+        <div class="menu">
+            <button id="btn-new">新規</button>
+            <button id="btn-open">開く</button>
+            <button id="btn-save">保存</button>
+        </div>
+    </header>
+    
+    <div class="app-container">
+        <aside class="sidebar">
+            <section class="station-list">
+                <h2>駅一覧</h2>
+                <ul id="station-list-ul"></ul>
+                <button id="btn-add-station">+ 駅追加</button>
+            </section>
+        </aside>
+        
+        <main class="diagram-area" id="diagram-container">
+            <svg id="diagram-svg" width="3000" height="3000"></svg>
+        </main>
+    </div>
+    
+    <footer class="bottom-panel">
+        <section class="train-timetable">
+            <h2>列車時刻表</h2>
+            <div id="timetable-display">駅や列車を選択するとここに状態が表示されます。</div>
+        </section>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/core/dataManager.js"></script>
+    <script src="js/core/projectManager.js"></script>
+    <script src="js/core/storageManager.js"></script>
+    <script src="js/parser/oudParser.js"></script>
+    <script src="js/parser/webdiaParser.js"></script>
+    <script src="js/diagram/diagramRenderer.js"></script>
+    <script src="js/diagram/diagramEditor.js"></script>
+    <script src="js/ui/stationEditor.js"></script>
+    <script src="js/ui/trainEditor.js"></script>
+    <script src="js/ui/timetableEditor.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
